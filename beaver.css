@@ -1,0 +1,28 @@
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.state {
+  background: #eee;
+  padding: 2px;
+  margin: 2px;
+	display: inline-block;
+	text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.state tbody tr td:first-child {
+  font-weight: bold;
+  line-height: 28px;
+}
+
+.states {
+	padding-top: 15px;
+}
