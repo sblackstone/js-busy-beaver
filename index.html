@@ -46,7 +46,7 @@
 	
       <div class='states'>
 	      <div class='state' ng-repeat="state in beaver.states">
-	        <h5>State {{$index}}</h5>
+	        <h5>State {{beaver.state_chars[$index]}}</h5>
 	        <table class='table'>
 	          <thead>
 	            <tr>
@@ -73,7 +73,7 @@
 		            </td>
 	              <td>
 									<select ng-model="state.instructions[input_value].next" class='form-control'>
-	                  <option ng-repeat="n in beaver.next_values()" value="{{n}}" ng-selected="{{state.instructions[input_value].next == n}}">{{n}}</option>
+	                  <option ng-repeat="n in beaver.next_values()" value="{{n}}" ng-selected="{{state.instructions[input_value].next == n}}">{{beaver.state_chars[n]}}</option>
 
 									</select>	
 		            </td>
