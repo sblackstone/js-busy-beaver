@@ -82,6 +82,16 @@
           </table>
         </div>
       </div>
+
+	   <div ng-click="beaver.run()"  class='btn btn-success'>Run</div>
+	   <div ng-click="beaver.stop()" class='btn btn-danger'>Stop</div>
+
+     <div class="tape-cell-container clearfix">
+	     <div class="tape-cell" ng-repeat="n in [0,512] | makeRange">
+	     </div>
+	   </div>
+
+
     </div>
   </body>
 </html>

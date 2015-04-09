@@ -52,8 +52,36 @@ Tape.prototype.move_right = function() {
 window.t = new TapeNode();
 
 
-angular.module('beaver-app', [])
-  .controller('BeaverController', function() {
+var app = angular.module('beaver-app', []);
+
+//
+// I don't understand why this isnt somehow a built-in feature..
+// Thanks, http://stackoverflow.com/questions/11873570/angularjs-for-loop-with-numbers-ranges
+//
+app.filter('makeRange', function() {
+     return function(input) {
+         var lowBound, highBound;
+         switch (input.length) {
+         case 1:
+             lowBound = 0;
+             highBound = parseInt(input[0]) - 1;
+             break;
+         case 2:
+             lowBound = parseInt(input[0]);
+             highBound = parseInt(input[1]);
+             break;
+         default:
+             return input;
+         }
+         var result = [];
+         for (var i = lowBound; i <= highBound; i++)
+             result.push(i);
+         return result;
+     };
+ });
+
+
+app.controller('BeaverController', function() {
     var beaver = this;
     beaver.state_count = 2;
     beaver.tape = null;
@@ -69,12 +97,17 @@ angular.module('beaver-app', [])
       'H': 'H',
   
    };
+   
     beaver.run = function() {
       beaver.current_state = beaver.states[0];
       beaver.step_count = 0;
       beaver.tape          = new Tape();
       beaver.loop_timer = window.setTimeout(beaver.one_loop, 1);
     }
+
+   beaver.stop = function() {
+     window.clearTimeout(beaver.loop_timer);	
+   }
 
     beaver.one_loop = function() {
         beaver.step_count++;
