@@ -4,7 +4,7 @@
   <head>
 
     <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="beaver.js"></script>
 
@@ -34,53 +34,53 @@
     </nav>
     <div class='container' ng-controller="BeaverController as beaver">
       <div class="row">
-	      <div class="col col-md-1">
-		      <label>States</label>
-		      <select ng-model="beaver.state_count" ng-change="beaver.initialize_states()" class='form-control'>
-		         <option  ng-repeat="k in [1,2,3,4,5]" value="{{k}}" ng-selected="{{beaver.state_count == k}}">{{k}}</option>
-			    </select>
-	      </div>
-	
-	    </div>
-	
-	
+        <div class="col col-md-1">
+          <label>States</label>
+          <select ng-model="beaver.state_count" ng-change="beaver.initialize_states()" class='form-control'>
+             <option  ng-repeat="k in [1,2,3,4,5]" value="{{k}}" ng-selected="{{beaver.state_count == k}}">{{k}}</option>
+          </select>
+        </div>
+  
+      </div>
+  
+  
       <div class='states'>
-	      <div class='state' ng-repeat="state in beaver.states">
-	        <h5>State {{beaver.state_chars[$index]}}</h5>
-	        <table class='table'>
-	          <thead>
-	            <tr>
-	              <th></th>
-	              <th>Write</th>
-	              <th>Move</th>
-	              <th>Next</th>
-	            </tr>
-	          </thead>
-	          <tbody>
-	            <tr ng-repeat="input_value in [0,1]">
-	              <td>{{input_value}}</td>
-	              <td>
-									<select ng-model="state.instructions[input_value].write" class='form-control'>
-	                  <option value="0" ng-selected="{{state.instructions[input_value].write == 0}}">0</option>
-	                  <option value="1" ng-selected="{{state.instructions[input_value].write == 1}}">1</option>
-									</select>	
-		            </td>
-	              <td>
-									<select ng-model="state.instructions[input_value].move" class='form-control'>
-	                  <option value="L" ng-selected="{{state.instructions[input_value].move == 'L'}}">L</option>
-	                  <option value="R" ng-selected="{{state.instructions[input_value].move == 'R'}}">R</option>
-									</select>	
-		            </td>
-	              <td>
-									<select ng-model="state.instructions[input_value].next" class='form-control'>
-	                  <option ng-repeat="n in beaver.next_values()" value="{{n}}" ng-selected="{{state.instructions[input_value].next == n}}">{{beaver.state_chars[n]}}</option>
+        <div class='state' ng-repeat="state in beaver.states">
+          <h5>State {{beaver.state_chars[$index]}}</h5>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Write</th>
+                <th>Move</th>
+                <th>Next</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="input_value in [0,1]">
+                <td>{{input_value}}</td>
+                <td>
+                  <select ng-model="state.instructions[input_value].write" class='form-control'>
+                    <option value="0" ng-selected="{{state.instructions[input_value].write == 0}}">0</option>
+                    <option value="1" ng-selected="{{state.instructions[input_value].write == 1}}">1</option>
+                  </select> 
+                </td>
+                <td>
+                  <select ng-model="state.instructions[input_value].move" class='form-control'>
+                    <option value="L" ng-selected="{{state.instructions[input_value].move == 'L'}}">L</option>
+                    <option value="R" ng-selected="{{state.instructions[input_value].move == 'R'}}">R</option>
+                  </select> 
+                </td>
+                <td>
+                  <select ng-model="state.instructions[input_value].next" class='form-control'>
+                    <option ng-repeat="n in beaver.next_values()" value="{{n}}" ng-selected="{{state.instructions[input_value].next == n}}">{{beaver.state_chars[n]}}</option>
 
-									</select>	
-		            </td>
-	            </tr>
-	          </tbody>
-	        </table>
-	      </div>
+                  </select> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </body>
