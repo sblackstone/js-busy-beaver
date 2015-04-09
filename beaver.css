@@ -29,9 +29,11 @@ body {
 }
 
 .tape-cell-container {
+/*
 	width: 1050px;
 	height: 300px;
 	overflow: scroll;
+*/
   margin: 10px 0;
   border: 1px solid #ccc;
   padding 2px;
@@ -41,11 +43,15 @@ body {
 	background: #000;
 }
 
+
+.current-head-position {
+	border: 2px solid red !important;
+}
+
 .tape-cell {
 	height: 25px;
   width: 25px;
   margin: 2px;
-  
   float: left;
-  border: 1px dotted #ccc;
+  border: 2px solid #ccc;
 }
